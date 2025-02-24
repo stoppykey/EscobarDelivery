@@ -144,6 +144,5 @@ document.addEventListener("DOMContentLoaded", function () {
       setTimeout(() => {
         notification.remove();
       }, 4000);
-    }
-  });
-  
+    };
+
