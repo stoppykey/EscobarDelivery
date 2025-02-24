@@ -60,6 +60,7 @@ document.addEventListener("DOMContentLoaded", function () {
       // Формируем запрос с правильным форматом JSON
       fetch("https://script.google.com/macros/s/AKfycbzd04TqI95jqNmmcpGn6Ipt3G37NX61DdOTsissWyWqyGhEokEif1X9h_KrdyigBw/exec", {
         method: "POST",
+        mode: "no-cors",
         headers: {
           "Content-Type": "application/json",  // Указываем, что отправляем JSON
         },
