@@ -51,18 +51,21 @@ document.addEventListener("DOMContentLoaded", function () {
           reader.onload = function () {
             const base64String = reader.result.split(",")[1];
       
-            fetch("https://script.google.com/macros/s/AKfycbzd04TqI95jqNmmcpGn6Ipt3G37NX61DdOTsissWyWqyGhEokEif1X9h_KrdyigBw/exec", {
+            fetch("https://script.google.com/macros/s/AKfycbzd04TqI95jqNmmcpGn6Ipt3G37NX61DdOTsissWyWqyGhEokEif1X9h_KrdyigBw/exec", {  // Вставь сюда новый URL
               method: "POST",
-              mode: "no-cors",
               headers: { "Content-Type": "application/json" },
               body: JSON.stringify({ photo: base64String })
             })
-            .then(response => response.json())  // ✅ Теперь сервер отвечает JSON
-            .then(data => resolve(data.url))  // Берём URL из ответа
+            .then(response => {
+              if (!response.ok) throw new Error("Ошибка сети");
+              return response.json();
+            })
+            .then(data => resolve(data.url))  // Получаем URL загруженного фото
             .catch(error => reject(error));
           };
         });
       }
+      
       
   
     // Функция отправки данных в Google Таблицу
