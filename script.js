@@ -95,19 +95,19 @@ document.addEventListener("DOMContentLoaded", function () {
   
     // Функция отправки данных в Google Таблицу
     function sendDataToSheet(name, phone, address, comment, photoUrl, deliveryTime, asap) {
-        fetch("https://cors-anywhere.herokuapp.com/https://script.google.com/macros/s/AKfycbzXBQ4EY84o_EGit9h9Pf_nBqelCeMM7l--Ups5Q-1W4B0cl7Q4pNjnnrTbdPFP_Dth/exec", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({
-            name: name,
-            phone: phone,
-            address: address,
-            comment: comment,
-            photoUrl: photoUrl,
-            deliveryTime: deliveryTime,
-            asap: asap
-          })
-        })
+       fetch("https://cors-anywhere.herokuapp.com/https://script.google.com/macros/s/AKfycbzXBQ4EY84o_EGit9h9Pf_nBqelCeMM7l--Ups5Q-1W4B0cl7Q4pNjnnrTbdPFP_Dth/exec", {
+  method: "POST",
+  headers: { "Content-Type": "application/json" },
+  body: JSON.stringify({
+    name: name,
+    phone: phone,
+    address: address,
+    comment: comment,
+    photoUrl: photoUrl,
+    deliveryTime: deliveryTime,
+    asap: asap
+  })
+})
           .then(response => response.json()) // Ожидаем JSON-ответ
           .then(data => {
             console.log("Данные успешно отправлены:", data);
