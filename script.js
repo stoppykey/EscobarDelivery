@@ -96,7 +96,6 @@ document.addEventListener("DOMContentLoaded", function () {
       reject("Ошибка чтения файла: " + error.message);
     };
   });
-}
 
       
       
