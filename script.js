@@ -53,6 +53,7 @@ document.addEventListener("DOMContentLoaded", function () {
       
             fetch("https://script.google.com/macros/s/AKfycbzd04TqI95jqNmmcpGn6Ipt3G37NX61DdOTsissWyWqyGhEokEif1X9h_KrdyigBw/exec", {
               method: "POST",
+              mode: "no-cors",
               headers: { "Content-Type": "application/json" },
               body: JSON.stringify({ photo: base64String })
             })
