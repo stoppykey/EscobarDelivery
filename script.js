@@ -61,7 +61,7 @@ document.addEventListener("DOMContentLoaded", function () {
             return;
           }
   
-          fetch("https://script.google.com/macros/s/AKfycbzd04TqI95jqNmmcpGn6Ipt3G37NX61DdOTsissWyWqyGhEokEif1X9h_KrdyigBw/exec", {
+          fetch("https://script.google.com/macros/s/AKfycbzXBQ4EY84o_EGit9h9Pf_nBqelCeMM7l--Ups5Q-1W4B0cl7Q4pNjnnrTbdPFP_Dth/exec", {
             method: "POST",
             headers: {
               "Content-Type": "application/json",
@@ -95,7 +95,7 @@ document.addEventListener("DOMContentLoaded", function () {
   
     // Функция отправки данных в Google Таблицу
     function sendDataToSheet(name, phone, address, comment, photoUrl, deliveryTime, asap) {
-        fetch("https://script.google.com/macros/s/AKfycbyO9PZd0nT8Gwg9XOXtc1vrEa86UWT6nfRc1WANzE8VsccgEwFkX247OwSG-YU_ozc/exec", {
+        fetch("https://script.google.com/macros/s/AKfycbzXBQ4EY84o_EGit9h9Pf_nBqelCeMM7l--Ups5Q-1W4B0cl7Q4pNjnnrTbdPFP_Dth/exec", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({
