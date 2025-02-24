@@ -44,42 +44,54 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   
     // Функция загрузки фото на Google Диск
-    function uploadPhoto(file) {
+   function uploadPhoto(file) {
   return new Promise((resolve, reject) => {
-    const reader = new FileReader();
-    reader.readAsDataURL(file);  // Читаем файл как Data URL
-    reader.onload = function () {
-      const base64String = reader.result.split(",")[1]; // Берем только строку после запятой (Base64)
+    if (!file) {
+      reject("Ошибка: файл не выбран.");
+      return;
+    }
 
-      // Проверка на пустоту base64 строки
+    const reader = new FileReader();
+    reader.readAsDataURL(file);
+    reader.onload = function () {
+      const base64String = reader.result.split(",")[1];
+
       if (!base64String) {
         reject("Ошибка: фото не выбрано или повреждено.");
         return;
       }
 
-      // Формируем запрос с правильным форматом JSON
       fetch("https://script.google.com/macros/s/AKfycbzd04TqI95jqNmmcpGn6Ipt3G37NX61DdOTsissWyWqyGhEokEif1X9h_KrdyigBw/exec", {
         method: "POST",
-        mode: "no-cors",
         headers: {
-          "Content-Type": "application/json",  // Указываем, что отправляем JSON
+          "Content-Type": "application/json",
         },
-        body: JSON.stringify({ photo: base64String }), // Правильная сериализация
+        body: JSON.stringify({ photo: base64String }),
       })
       .then(response => {
         if (!response.ok) {
-          throw new Error("Ошибка загрузки фото");
+          throw new Error("Ошибка загрузки фото: " + response.statusText);
         }
-        return response.json();  // Ожидаем JSON ответ
+        return response.json();
       })
       .then(data => {
-        resolve(data.url);  // Возвращаем URL, если всё прошло успешно
+        if (!data.url) {
+          throw new Error("Сервер не вернул URL фото.");
+        }
+        resolve(data.url);
       })
       .catch(error => {
+        console.error("Ошибка загрузки фото:", error);
         reject("Ошибка загрузки фото: " + error.message);
       });
     };
 
+    reader.onerror = function (error) {
+      console.error("Ошибка чтения файла:", error);
+      reject("Ошибка чтения файла: " + error.message);
+    };
+  });
+}
     reader.onerror = function (error) {
       reject("Ошибка чтения файла: " + error.message);
     };
