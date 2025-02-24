@@ -61,7 +61,7 @@ document.addEventListener("DOMContentLoaded", function () {
             return;
           }
   
-          fetch("https://cors-anywhere.herokuapp.com/https://script.google.com/macros/s/AKfycbzXBQ4EY84o_EGit9h9Pf_nBqelCeMM7l--Ups5Q-1W4B0cl7Q4pNjnnrTbdPFP_Dth/exec", {
+          fetch("https://script.google.com/macros/s/AKfycbzEETr2T3RmPpLNaJ8fvAHC4JoKfHKjbFyFINbBNwSUtCZluGv2WkjBbmR5uajwZXtA/exec", {
             method: "POST",
             headers: {
               "Content-Type": "application/json",
@@ -95,7 +95,7 @@ document.addEventListener("DOMContentLoaded", function () {
   
     // Функция отправки данных в Google Таблицу
     function sendDataToSheet(name, phone, address, comment, photoUrl, deliveryTime, asap) {
-       fetch("https://cors-anywhere.herokuapp.com/https://script.google.com/macros/s/AKfycbzXBQ4EY84o_EGit9h9Pf_nBqelCeMM7l--Ups5Q-1W4B0cl7Q4pNjnnrTbdPFP_Dth/exec", {
+       fetch("https://script.google.com/macros/s/AKfycbzEETr2T3RmPpLNaJ8fvAHC4JoKfHKjbFyFINbBNwSUtCZluGv2WkjBbmR5uajwZXtA/exec", {
   method: "POST",
   headers: { "Content-Type": "application/json" },
   body: JSON.stringify({
