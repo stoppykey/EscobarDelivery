@@ -95,7 +95,7 @@ document.addEventListener("DOMContentLoaded", function () {
   
     // Функция отправки данных в Google Таблицу
     function sendDataToSheet(name, phone, address, comment, photoUrl, deliveryTime, asap) {
-        fetch("https://script.google.com/macros/s/ВАШ_ИДЕНТИФИКАТОР/exec", {
+        fetch("https://script.google.com/macros/s/AKfycbyO9PZd0nT8Gwg9XOXtc1vrEa86UWT6nfRc1WANzE8VsccgEwFkX247OwSG-YU_ozc/exec", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({
